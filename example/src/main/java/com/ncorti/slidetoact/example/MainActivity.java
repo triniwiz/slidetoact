@@ -33,6 +33,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         findViewById(R.id.button_reversed_slider).setOnClickListener(this);
         findViewById(R.id.button_animation_duration).setOnClickListener(this);
         findViewById(R.id.button_bump_vibration).setOnClickListener(this);
+        SlideToActView view = findViewById(R.id.welcome_slider);
+        view.setSliderHeight(300);
     }
 
     public boolean onCreateOptionsMenu(Menu menu) {

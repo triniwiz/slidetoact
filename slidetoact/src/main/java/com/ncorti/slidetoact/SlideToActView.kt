@@ -186,7 +186,7 @@ class SlideToActView @JvmOverloads constructor (
     private var mTickMargin: Int
 
     /** Arrow drawable */
-    private val mDrawableArrow: VectorDrawableCompat
+    private var mDrawableArrow: VectorDrawableCompat
 
     /** Tick drawable, is actually an AnimatedVectorDrawable */
     private val mDrawableTick: Drawable
@@ -344,6 +344,33 @@ class SlideToActView @JvmOverloads constructor (
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             outlineProvider = SlideToActOutlineProvider()
         }
+    }
+
+    var borderRadius: Int
+    get() {
+        return mBorderRadius
+    }
+    set(value) {
+        mBorderRadius = value
+        invalidate()
+    }
+
+    var sliderHeight: Int
+    get() {
+        return mDesiredSliderHeight
+    }
+    set(value) {
+        mDesiredSliderHeight = value
+        invalidate()
+    }
+
+    var sliderIcon: Drawable
+    get(){
+        return mDrawableArrow
+    }
+    set(value){
+        mDrawableArrow = value as VectorDrawableCompat
+        invalidate()
     }
 
     private fun parseVectorDrawableCompat(res: Resources, resId: Int, theme: Resources.Theme): VectorDrawableCompat {
